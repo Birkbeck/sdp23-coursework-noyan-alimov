@@ -1,11 +1,9 @@
 package sml;
 
-// TODO: write a JavaDoc for the class
-
 /**
  * Represents an abstract instruction.
  *
- * @author ...
+ * @author Noyan Alimov
  */
 public abstract class Instruction {
 	protected final String label;
@@ -48,10 +46,11 @@ public abstract class Instruction {
 		return (getLabel() == null) ? "" : getLabel() + ": ";
 	}
 
-	// TODO: What does abstract in the declaration below mean?
-	//       (Write a short explanation.)
+	// What does abstract in the declaration below mean?
+	// abstract means that every subclass of this Instruction class needs to have its own toString() method
 	@Override
 	public abstract String toString();
 
-	// TODO: Make sure that subclasses also implement equals and hashCode (needed in class Machine).
+	public abstract int hashCode();
+	public abstract boolean equals(Object o);
 }
