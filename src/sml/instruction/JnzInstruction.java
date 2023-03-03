@@ -15,7 +15,7 @@ public class JnzInstruction extends Instruction {
 
     public static final String OP_CODE = "jnz";
 
-    public JnzInstruction(String label, String nextStatementToExecute, RegisterName source) {
+    public JnzInstruction(String label, RegisterName source, String nextStatementToExecute) {
         super(label, OP_CODE);
         this.nextStatementToExecute = nextStatementToExecute;
         this.source = source;
