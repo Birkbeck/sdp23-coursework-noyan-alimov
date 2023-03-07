@@ -11,31 +11,30 @@ import java.util.Objects;
 
 public class MovInstruction extends Instruction {
     private final RegisterName result;
-    private final RegisterName source;
+    private final int value;
 
     public static final String OP_CODE = "mov";
 
-    public MovInstruction(String label, RegisterName result, RegisterName source) {
+    public MovInstruction(String label, RegisterName result, int value) {
         super(label, OP_CODE);
         this.result = result;
-        this.source = source;
+        this.value = value;
     }
 
     @Override
     public int execute(Machine m) {
-        int value = m.getRegisters().get(source);
         m.getRegisters().set(result, value);
         return NORMAL_PROGRAM_COUNTER_UPDATE;
     }
 
     @Override
     public String toString() {
-        return getLabelString() + getOpcode() + " " + result + " " + source;
+        return getLabelString() + getOpcode() + " " + result + " " + value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(label, result, source);
+        return Objects.hash(label, result, value);
     }
 
     @Override
@@ -43,6 +42,6 @@ public class MovInstruction extends Instruction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MovInstruction other = (MovInstruction) o;
-        return Objects.equals(this.label, other.label) && Objects.equals(this.result, other.result) && Objects.equals(this.source, other.source);
+        return Objects.equals(this.label, other.label) && Objects.equals(this.result, other.result) && Objects.equals(this.value, other.value);
     }
 }

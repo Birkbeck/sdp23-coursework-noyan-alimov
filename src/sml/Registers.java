@@ -3,11 +3,9 @@ package sml;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// TODO: write a JavaDoc for the class
-
 /**
- *
- * @author ...
+ * Stores registers
+ * @author Noyan Alimov
  */
 public final class Registers {
     private final Map<Register, Integer> registers = new HashMap<>();

@@ -70,13 +70,11 @@ public final class Machine {
 				.collect(Collectors.joining("\n"));
 	}
 
-	// TODO: use pattern matching for instanceof
 	// https://docs.oracle.com/en/java/javase/14/language/pattern-matching-instanceof-operator.html
 	@Override
 	public boolean equals(Object o) {
-		if (o instanceof Machine) {
+		if (o instanceof Machine other) {
 			// TODO:
-			Machine other = (Machine) o;
 			return Objects.equals(this.labels, other.labels)
 					&& Objects.equals(this.program, other.program)
 					&& Objects.equals(this.registers, other.registers)

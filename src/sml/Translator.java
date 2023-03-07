@@ -14,7 +14,7 @@ import static sml.Registers.Register;
  * <p>
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  *
- * @author ...
+ * @author Noyan Alimov
  */
 public final class Translator {
 
@@ -86,7 +86,9 @@ public final class Translator {
                 if (thirdParamType == RegisterName.class) {
                     args = new Object[] {label, Register.valueOf(r), Register.valueOf(s)};
                 } else if (thirdParamType == String.class) {
-                    args = new Object[] {label, Register.valueOf(r), s};
+                    args = new Object[]{label, Register.valueOf(r), s};
+                } else if (thirdParamType == int.class) {
+                    args = new Object[] {label, Register.valueOf(r), Integer.parseInt(s)};
                 }
                 return (Instruction) con.newInstance(args);
             }
